@@ -5,6 +5,7 @@ import './App.css';
 import Person from './Person/Person';
 import Radium from 'radium';
 
+
 class App extends Component {
 	state = {
 		person: [
@@ -46,20 +47,7 @@ class App extends Component {
 		this.setState({ person: person });
 	}
 	render() {
-		const style = {
-			backgroundColor: "green",
-			color: 'white',
-			font: "inherit",
-			border: "1px solid blue",
-			padding: "8px",
-			marginBottom: "10px",
-			cursor: "pointer",
-			':hover' : {
-				backgroundColor: 'lightgreen',
-				color : 'black'
-			}
-		};
-
+	
 		let person = null;
 		if (this.state.showPersons) {
 			person = (
@@ -74,11 +62,11 @@ class App extends Component {
 					})}
 				</div>
 			);
-			style.backgroundColor = "red";
-			style[':hover'] = {
-				backgroundColor: 'blue',
-				color : 'white'
-			}
+			// style.backgroundColor = "red";
+			// style[':hover'] = {
+			// 	backgroundColor: 'lightred',
+			// 	color : 'black'
+			// }
 		}
 		let classes = ['font-size'];
 		
@@ -97,8 +85,7 @@ class App extends Component {
 				<p className={classes.join(' ')}>
 					This is really working
 				</p>
-				<button
-					style={style}
+				<button className="button-class"
 					onClick={this.togglePersonHandlor} >
 					Toggle Persons
 					</button>

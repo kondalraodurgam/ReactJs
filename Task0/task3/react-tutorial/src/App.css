@@ -16,3 +16,17 @@
 .font-size{
   font-size: 30px;
 }
+
+.button-class {
+	background-color: "green";
+	color: 'white';
+	font: "inherit";
+	border: "1px solid blue";
+	padding: "8px";
+	margin-bottom: "10px";
+	cursor: "pointer";
+}
+.button-class:hover{
+  background-color: 'lightgreen';
+  color : 'black';
+}
