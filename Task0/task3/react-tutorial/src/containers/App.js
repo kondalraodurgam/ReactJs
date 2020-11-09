@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 
-import Person from './Person/Person';
+import Person from '../compomants/Persons/Person/Person';
 import Radium from 'radium';
+import ErrorBoundary from '../compomants/ErrorBoundary/ErrorBoundary';
 
 
 class App extends Component {
@@ -53,12 +54,12 @@ class App extends Component {
 			person = (
 				<div>
 					{this.state.person.map((person, index) => {
-						return <Person
+						return <ErrorBoundary key={person.id}>
+							<Person
 							click={() => this.deletePersonHandler(index)}
 							name={person.name}
 							age={person.age}
-							key={person.id}
-						/>
+						/></ErrorBoundary>
 					})}
 				</div>
 			);
