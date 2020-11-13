@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 // import logo from './logo.svg';
 import './App.css';
 
-import Person from '../compomants/Persons/Person/Person';
+import Persons from '../compomants/Persons/Persons';
 import Radium from 'radium';
 import ErrorBoundary from '../compomants/ErrorBoundary/ErrorBoundary';
+import Cockpit from '../compomants/Cockpit/Cockpit';
 
 
 class App extends Component {
@@ -48,48 +49,28 @@ class App extends Component {
 		this.setState({ person: person });
 	}
 	render() {
-	
+
 		let person = null;
 		if (this.state.showPersons) {
-			person = (
-				<div>
-					{this.state.person.map((person, index) => {
-						return <ErrorBoundary key={person.id}>
-							<Person
-							click={() => this.deletePersonHandler(index)}
-							name={person.name}
-							age={person.age}
-						/></ErrorBoundary>
-					})}
-				</div>
-			);
+			person =<Persons
+					persons={this.state.persons}
+					clicked={this.state.deletePersonHandler}
+					changed={this.state.nameChangeToHandler} />
+
 			// style.backgroundColor = "red";
 			// style[':hover'] = {
 			// 	backgroundColor: 'lightred',
 			// 	color : 'black'
 			// }
 		}
-		let classes = ['font-size'];
-		
-		if (this.state.person.length <=2) {
-			classes.push('red');
-		}
-		if (this.state.person.length<=1) {
-			classes.push('bold');
-		}
+
 
 		return (
 			<div className="App">
-				<h1>
-					Hi, am Creating React Js App
-				</h1>
-				<p className={classes.join(' ')}>
-					This is really working
-				</p>
-				<button className="button-class"
-					onClick={this.togglePersonHandlor} >
-					Toggle Persons
-					</button>
+				<Cockpit
+					showPersons={this.state.showPersons}
+					persons={this.state.persons} 
+					clicked={this.togglePersonHandlor}/>
 				{person}
 			</div>
 		)

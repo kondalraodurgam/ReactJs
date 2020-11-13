@@ -3,11 +3,11 @@ import React, { Component } from 'react';
 class ErrorBoundary extends Component {
 
     state = {
-        hasError : false,
-        errorMessage : ''
+        hasError: false,
+        errorMessage: ''
     }
-    componentDidCatch = (error,info)=> {
-        this.setState({hasError: true,errorMessage : error});
+    componentDidCatch = (error, info) => {
+        this.setState({ hasError: true, errorMessage: error });
     }
 
     render() {
@@ -16,8 +16,11 @@ class ErrorBoundary extends Component {
         } else {
             return this.props.children;
         }
-        
+
     }
 }
 
-export default ErrorBoundary; 
+export default ErrorBoundary;
+
+
+    
